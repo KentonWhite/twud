@@ -29,5 +29,9 @@ gem 'nifty-generators'
 # group :test do
 #   gem 'webrat'
 # end
-
-gem "rspec-rails", ">= 2.0.0.beta.17"
+group :test do
+	gem 'rspec-rails', '>= 2.0.0.beta.17'
+	gem 'autotest' 
+	gem 'autotest-rails' 
+  gem 'mocha'
+end
