@@ -25,3 +25,7 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+def login(user)
+  @controller.stubs(:current_user).returns(User.find_by_username(user)) 
+end
