@@ -1,4 +1,6 @@
 Twud::Application.routes.draw do |map|
+  resource :admin 
+
   match 'signup' => 'users#new', :as => :signup
 
   match 'logout' => 'sessions#destroy', :as => :logout
