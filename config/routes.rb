@@ -1,4 +1,4 @@
-Twud::Application.routes.draw do |map|
+Twud::Application.routes.draw do
   resource :admin 
 
   match 'signup' => 'users#new', :as => :signup
