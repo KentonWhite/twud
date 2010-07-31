@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
     )                              
     
     incoming_mail.save
-    render :xml => incoming_mail.to_xml, :status => :created 
+    render :xml => incoming_mail, :status => :created 
      
     name = incoming_mail.text.match(/http:\/\/twitter.com\/(.*)/)[1]
     player = Player.new(:name => name)
