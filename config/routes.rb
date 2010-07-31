@@ -7,7 +7,7 @@ Twud::Application.routes.draw do
 
   match 'login' => 'sessions#new', :as => :login 
   
-  match 'register' => 'players#register', :as => :register, :via => :post
+  match 'register' => 'players#register', :as => :register, :via => [:post, :get]
 
   resources :sessions
 
