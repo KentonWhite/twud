@@ -12,5 +12,6 @@ class PlayersController < ApplicationController
     )                              
     
     @incoming_mail.save
+    render :xml => "incoming_mail", :status => :created
   end
 end
