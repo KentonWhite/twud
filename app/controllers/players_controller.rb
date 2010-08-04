@@ -10,14 +10,12 @@ class PlayersController < ApplicationController
       :from => params['from'],
       :subject => params['subject']
     )                              
-    
+    @incoming_mail.save
     match, name = '', ''
     match = @incoming_mail.text.match(/http:\/\/twitter.com\/(.*)/) unless @incoming_mail.text.blank?
     name = match[1] unless match.blank?
     player = Player.new(:name => name)
-    player.save unless player.name.blank?
-    @incoming_mail.save
-    render :xml => @incoming_mail.to_xml, :status => :ok 
-     
+    player.save
+    render(:xml => @incoming_mail.to_xml, :status => :ok)
   end
 end

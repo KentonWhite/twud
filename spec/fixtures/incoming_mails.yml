@@ -1,0 +1,14 @@
+new_twitter:
+  id: 9
+  to: watch@watch.twud.net
+  from: Twitter <twitter-confirmation-watch=watch.twud.net@postmaster.twitter.com>
+  subject: Glen McGregor is now following you on Twitter!
+  text: "Hi, Kenton White (KentonWhite).\nGlen McGregor (glen_mcgregor) is now following your tweets on Twitter.\nCheck out Glen McGregor's profile here: http://twitter.com/glen_mcgregor\n" 
+  
+new_non_twitter:
+  id: 10
+  to: watch@watch.twud.net
+  from: Twitter <twitter-confirmation-watch=watch.twud.net@postmaster.twitter.com>
+  subject: Glen McGregor is now following you on Twitter!
+  text: "Hi, Kenton White (KentonWhite).\nGlen McGregor (glen_mcgregor) is now following your tweets on Twitter.\nCheck out Glen McGregor's profile here:"
+  

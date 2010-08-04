@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
  
 describe AdminsController do
-  fixtures :all
+  fixtures :users
   render_views
   
   it "show action should render show template" do

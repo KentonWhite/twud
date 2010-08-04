@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
  
 describe UsersController do
-  fixtures :all
+  fixtures :users
   render_views 
     
   it "new action without login should redirect to login" do

@@ -12,6 +12,8 @@ gem 'pg'
 
 # Deploy with Capistrano
 # gem 'capistrano'
+# gem 'heroku'
+gem 'taps'
 
 # To use debugger
 # gem 'ruby-debug'
@@ -33,5 +35,7 @@ group :test do
 	gem 'rspec-rails', '>= 2.0.0.beta.17'
 	gem 'autotest' 
 	gem 'autotest-rails' 
+	gem 'autotest-growl'
+	gem 'autotest-fsevent'
   gem 'mocha'
 end
