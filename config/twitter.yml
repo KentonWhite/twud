@@ -1,0 +1,13 @@
+# config/twitter.yml
+
+development:
+  consumer_key: CfBeiEpCCZc0Z8hVIZmA
+  consumer_secret: YUCUXTTapHwcJUFthaETa60am5Ore9zsCqbYbNIGymc
+
+test:
+  consumer_key: CfBeiEpCCZc0Z8hVIZmA
+  consumer_secret: YUCUXTTapHwcJUFthaETa60am5Ore9zsCqbYbNIGymc
+
+production:
+  consumer_key: CfBeiEpCCZc0Z8hVIZmA
+  consumer_secret: YUCUXTTapHwcJUFthaETa60am5Ore9zsCqbYbNIGymc
