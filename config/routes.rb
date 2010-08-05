@@ -1,4 +1,6 @@
 Twud::Application.routes.draw do
+  resources :accounts, :except => [:edit, :update]
+
   resource :admin 
 
   match 'signup' => 'users#new', :as => :signup
