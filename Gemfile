@@ -36,5 +36,7 @@ group :test do
 	gem 'rspec-rails', '>= 2.0.0.beta.17'
 	gem 'autotest' 
 	gem 'autotest-rails' 
-  gem 'mocha'
+  gem 'mocha' 
+  gem 'vcr'
+  gem 'fakeweb'
 end

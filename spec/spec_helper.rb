@@ -2,11 +2,13 @@
 # from the project root directory.
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
+require 'rspec/rails' 
+require 'fakeweb' 
+require 'vcr'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}  
 
 RSpec.configure do |config|
   # == Mock Framework
@@ -29,3 +31,13 @@ end
 def login(user)
   @controller.stubs(:current_user).returns(User.find_by_username(user)) 
 end
+
+def vcr_config
+  VCR.config do |c|
+    c.cassette_library_dir = "spec/fixtures/vcr_cassettes/"
+    c.http_stubbing_library = :fakeweb # or :webmock
+    c.default_cassette_options = {:record => :none}
+  end 
+end
+
+vcr_config

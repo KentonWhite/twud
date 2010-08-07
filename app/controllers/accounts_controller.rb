@@ -9,6 +9,7 @@ class AccountsController < ApplicationController
   
   def new
     @account = Account.new
+    redirect_to @account.authorize_url(accounts_url(:method => :post))
   end
   
   def create

@@ -1,0 +1,60 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: http://api.twitter.com:80/oauth/request_token
+    body: 
+    headers: 
+      accept: 
+      - "*/*"
+      user-agent: 
+      - OAuth gem v0.4.1
+      content-length: 
+      - 0
+      authorization: 
+      - OAuth oauth_body_hash="2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D", oauth_callback="www.example.com%2Faccounts%2Fcreate", oauth_consumer_key="CfBeiEpCCZc0Z8hVIZmA", oauth_nonce="z8tYMbcbK1cXdYroAl4soSCEfdr1olyk0isq0XqTpw", oauth_signature="eDcghiWLrfiWnnfLRjM9lDSBntU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1281222259", oauth_version="1.0"
+      connection: 
+      - close
+      host: 
+      - api.twitter.com
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      date: 
+      - Sat, 07 Aug 2010 23:04:19 GMT
+      server: 
+      - hi
+      status: 
+      - 200 OK
+      x-transaction: 
+      - 1281222259-70916-44462
+      etag: 
+      - "\"11de80d7d010b7d145fccdf120ac8193\""
+      last-modified: 
+      - Sat, 07 Aug 2010 23:04:19 GMT
+      x-runtime: 
+      - "0.01273"
+      content-type: 
+      - text/html; charset=utf-8
+      content-length: 
+      - "146"
+      pragma: 
+      - no-cache
+      x-revision: 
+      - DEV
+      expires: 
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      cache-control: 
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      set-cookie: 
+      - k=99.240.142.228.1281222259383209; path=/; expires=Sat, 14-Aug-10 23:04:19 GMT; domain=.twitter.com
+      - guest_id=12812222593915090; path=/; expires=Mon, 06 Sep 2010 23:04:19 GMT
+      - _twitter_sess=BAh7CDoPY3JlYXRlZF9hdGwrCMAyzE4qAToHaWQiJTY3MDM1NThlNjcwMGZj%250ANjJkMTdhZDJmMGE4OGFkNTg0IgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVy%250AOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--1192795e5f64c751fc7643863bb2cb6961bc5620; domain=.twitter.com; path=/
+      vary: 
+      - Accept-Encoding
+      connection: 
+      - close
+    body: oauth_token=y34FUj5owAF7PYR4pAUjUa81FZxHCRbFSyx0Cjbu0E&oauth_token_secret=P6rBc8TbKUjdsu8Pv1rgAzteaLvQg1SRcj1PisA2Jc&oauth_callback_confirmed=true
+    http_version: "1.1"

@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
  
 describe AccountsController do
-  fixtures :all
   render_views 
   
   before(:each) do
@@ -16,11 +15,14 @@ describe AccountsController do
   it "show action should render show template" do
     get :show, :id => Account.first
     response.should render_template(:show)
-  end
+  end         
   
-  it "new action should render new template" do
-    get :new
-    response.should render_template(:new)
+  it "new action should redirect to twitter authentication" do
+    VCR.use_cassette('post', :record => :new_episodes) do
+      get :new 
+      @url = Account.new().authorize_url(accounts_url(:method => :post))
+    end
+    response.should redirect_to(@url)
   end
   
   it "create action should render new template when model is invalid" do
