@@ -1,5 +1,8 @@
 Twud::Application.routes.draw do
-  resources :accounts, :except => [:edit, :update]
+  
+  get "/accounts/create" 
+  
+  resources :accounts, :except => [:edit, :update, :create] 
 
   resource :admin 
 

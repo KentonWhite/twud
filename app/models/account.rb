@@ -13,7 +13,7 @@ class Account < ActiveRecord::Base
     "https://#{request_token.authorize_url(:force_login => 'true')}"
   end 
   
-  def exchange_token(verifier)
+  def exchange_token(verifier) 
     oauth = create_oauth_session 
     oauth.authorize_from_request(
       self.request_token, self.request_secret, verifier
@@ -22,7 +22,7 @@ class Account < ActiveRecord::Base
     self.access_token = twitter.client.access_token.token 
     self.access_secret = twitter.client.access_token.secret 
     self.name = self.get_screen_name
-    self.authorized = true
+    self.authorized = true 
     self.save 
     self
   end

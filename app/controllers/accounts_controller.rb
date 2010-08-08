@@ -9,14 +9,14 @@ class AccountsController < ApplicationController
   
   def new
     @account = Account.create
-    redirect_to @account.authorize(accounts_url(:method => :post))
+    redirect_to @account.authorize(url_for(:action => :create))
   end
   
   def create
-    @account = Account.new(params[:account])
-    if @account.save
+    @account = Account.find_by_request_token(params[:oauth_token])
+    if @account.exchange_token(params[:oauth_verifier])
       flash[:notice] = "Successfully created account."
-      redirect_to @account
+      redirect_to accounts_url
     else
       redirect_to new_account_url
     end

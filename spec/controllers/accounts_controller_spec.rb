@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
- 
+
 describe AccountsController do
   fixtures :accounts
   render_views 
@@ -20,21 +20,26 @@ describe AccountsController do
     
   it "new action should redirect to authentication" do
     url = 'www.example.com/oauth/authenticate'
-    Account.any_instance.expects(:authorize).with(accounts_url(:method => :post)).returns(url)
+    Account.any_instance.expects(:authorize).returns(url)
     get :new
     response.should redirect_to(url)
+  end 
+  
+  it 'create action should call exchange_token' do
+    Account.any_instance.expects(:exchange_token)
+    post :create, :oauth_token => 'y34FUj5owAF7PYR4pAUjUa81FZxHCRbFSyx0Cjbu0E'
   end
   
   it "create action should redirect to new when model is invalid" do
-    Account.any_instance.stubs(:valid?).returns(false)
-    post :create
+    Account.any_instance.stubs(:exchange_token).returns(false)
+    post :create, :oauth_token => 'y34FUj5owAF7PYR4pAUjUa81FZxHCRbFSyx0Cjbu0E'
     response.should redirect_to(new_account_url)
   end
   
   it "create action should redirect when model is valid" do
-    Account.any_instance.stubs(:valid?).returns(true)
-    post :create
-    response.should redirect_to(account_url(assigns[:account]))
+    Account.any_instance.stubs(:exchange_token).returns(true)
+    post :create, :oauth_token => 'y34FUj5owAF7PYR4pAUjUa81FZxHCRbFSyx0Cjbu0E'
+    response.should redirect_to(accounts_url)
   end
     
   it "destroy action should destroy model and redirect to index action" do
@@ -42,5 +47,6 @@ describe AccountsController do
     delete :destroy, :id => account
     response.should redirect_to(accounts_url)
     Account.exists?(account.id).should be_false
-  end
+  end 
+  
 end
