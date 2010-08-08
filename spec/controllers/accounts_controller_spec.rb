@@ -16,11 +16,11 @@ describe AccountsController do
   it "show action should render show template" do
     get :show, :id => accounts(:one)
     response.should render_template(:show)
-  end         
-  
+  end 
+    
   it "new action should redirect to authentication" do
     url = 'www.example.com/oauth/authenticate'
-    Account.any_instance.expects(:authorize_url).with(accounts_url(:method => :post)).returns(url)
+    Account.any_instance.expects(:authorize).with(accounts_url(:method => :post)).returns(url)
     get :new
     response.should redirect_to(url)
   end

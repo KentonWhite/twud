@@ -8,8 +8,8 @@ class AccountsController < ApplicationController
   end
   
   def new
-    @account = Account.new
-    redirect_to @account.authorize_url(accounts_url(:method => :post))
+    @account = Account.create
+    redirect_to @account.authorize(accounts_url(:method => :post))
   end
   
   def create
