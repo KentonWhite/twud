@@ -1,0 +1,67 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://api.twitter.com:80/account/verify_credentials.json
+    body: 
+    headers: 
+      accept: 
+      - "*/*"
+      user-agent: 
+      - OAuth gem v0.4.1
+      authorization: 
+      - OAuth oauth_consumer_key="CfBeiEpCCZc0Z8hVIZmA", oauth_nonce="AGDsJRuV8m0Pp4BZ6kvcjInWqVNmDhCw1a6aR0GjI", oauth_signature="RR2Qh1jzg%2FRcJLmshyygtfNiwwM%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1281297954", oauth_token="172935359-IeYANm4s7GQ6mTl9hXYZya3q45gKVxjbIXF9Wkko", oauth_version="1.0"
+      connection: 
+      - close
+      host: 
+      - api.twitter.com
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      date: 
+      - Sun, 08 Aug 2010 20:05:55 GMT
+      server: 
+      - hi
+      status: 
+      - 200 OK
+      x-transaction: 
+      - 1281297955-60112-58703
+      x-ratelimit-limit: 
+      - "150"
+      etag: 
+      - "\"277557b49f605a4afac26d8313b5f0d9\""
+      last-modified: 
+      - Sun, 08 Aug 2010 20:05:55 GMT
+      x-ratelimit-remaining: 
+      - "148"
+      x-runtime: 
+      - "0.03246"
+      content-type: 
+      - application/json; charset=utf-8
+      content-length: 
+      - "904"
+      pragma: 
+      - no-cache
+      x-ratelimit-class: 
+      - api
+      x-revision: 
+      - DEV
+      expires: 
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      cache-control: 
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-ratelimit-reset: 
+      - "1281300937"
+      set-cookie: 
+      - k=99.240.142.228.1281297955021412; path=/; expires=Sun, 15-Aug-10 20:05:55 GMT; domain=.twitter.com
+      - guest_id=128129795502416027; path=/; expires=Tue, 07 Sep 2010 20:05:55 GMT
+      - lang=en; path=/
+      - _twitter_sess=BAh7CDoPY3JlYXRlZF9hdGwrCN44T1MqAToHaWQiJWFmZDFlMGJiYWFjODY3%250ANWVmMWUyMzIwMmUyZWVlMWM1IgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVy%250AOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--ae0443ddc0b8585ee492bb4a7993e3437246d67b; domain=.twitter.com; path=/
+      vary: 
+      - Accept-Encoding
+      connection: 
+      - close
+    body: "{\"following\":false,\"description\":null,\"listed_count\":0,\"statuses_count\":0,\"profile_use_background_image\":true,\"profile_background_color\":\"9ae4e8\",\"show_all_inline_media\":false,\"contributors_enabled\":false,\"geo_enabled\":false,\"profile_background_image_url\":\"http://s.twimg.com/a/1281028705/images/themes/theme1/bg.png\",\"profile_text_color\":\"000000\",\"profile_image_url\":\"http://s.twimg.com/a/1281028705/images/default_profile_2_normal.png\",\"followers_count\":0,\"profile_background_tile\":false,\"favourites_count\":0,\"profile_link_color\":\"0000ff\",\"url\":null,\"screen_name\":\"twudnet\",\"notifications\":false,\"time_zone\":\"Quito\",\"friends_count\":0,\"protected\":false,\"follow_request_sent\":false,\"lang\":\"en\",\"created_at\":\"Sat Jul 31 00:25:21 +0000 2010\",\"profile_sidebar_fill_color\":\"e0ff92\",\"location\":null,\"name\":\"Twud Net\",\"verified\":false,\"id\":172935359,\"utc_offset\":-18000,\"profile_sidebar_border_color\":\"87bc44\"}"
+    http_version: "1.1"

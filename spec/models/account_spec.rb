@@ -120,12 +120,32 @@ describe Account, 'exchange_token' do
     @account.access_secret.should == access_secret    
   end                                  
   
-  pending 'should set name' do
+  it 'should set name' do
     name = 'twudnet'
+    Account.any_instance.stubs(:get_screen_name).returns(name) 
+    exchange_token
     @account.name.should == name    
   end                         
   
   it 'should set as authorized' do
     @account.authorized.should be_true    
+  end
+end   
+
+describe Account, 'get_screen_name' do
+  fixtures :accounts
+  it 'should return screen name' do
+    account = accounts(:two)
+    VCR.use_cassette('get_screen_name', :record => :new_episodes) do
+      account.send(:get_screen_name).should == account.name
+    end
+  end
+end
+
+describe Account, 'open_twitter' do
+  fixtures :accounts
+  it 'should open twitter account' do
+    account = accounts(:two)
+    account.send(:open_twitter).should_not be_nil
   end
 end

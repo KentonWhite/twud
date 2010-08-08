@@ -18,9 +18,10 @@ class Account < ActiveRecord::Base
     oauth.authorize_from_request(
       self.request_token, self.request_secret, verifier
     ) 
-    twitter = Twitter::Base.new(oauth)
+    @twitter = Twitter::Base.new(oauth)
     self.access_token = twitter.client.access_token.token 
-    self.access_secret = twitter.client.access_token.secret
+    self.access_secret = twitter.client.access_token.secret 
+    self.name = self.get_screen_name
     self.authorized = true
     self.save 
     self
@@ -40,6 +41,20 @@ class Account < ActiveRecord::Base
   
   def create_oauth_session
     Twitter::OAuth.new(Twitter::CONSUMER_KEY, Twitter::CONSUMER_SECRET)
-  end
+  end 
+  
+  def twitter
+    @twitter ||= open_twitter
+  end 
+  
+  def get_screen_name
+    twitter.verify_credentials.screen_name
+  end 
+  
+  def open_twitter
+     oauth = create_oauth_session
+     oauth.authorize_from_access(self.access_token, self.access_secret)
+     Twitter::Base.new(oauth)
+  end  
 
 end

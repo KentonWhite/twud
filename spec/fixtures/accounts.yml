@@ -4,6 +4,9 @@ one:
   request_secret: P6rBc8TbKUjdsu8Pv1rgAzteaLvQg1SRcj1PisA2Jc
 
 two:
-  name: MyString
+  name: twudnet
   request_token: 3rNTkmqrgSxyOzGpvSuqMkkTemRdIn3E2sbuE7TjI4
   request_secret: Mn5YKzd7BsVfGBd69ZEOsHcl2pmkjgBblgxSgmKS5gs
+  access_token: 172935359-IeYANm4s7GQ6mTl9hXYZya3q45gKVxjbIXF9Wkko
+  access_secret: R5PCZlL4rbLVZBUiIdIQ5LX6hvK55KAw1t2jchA78aQ
+  authorized: true
