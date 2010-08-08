@@ -18,7 +18,7 @@ class AccountsController < ApplicationController
       flash[:notice] = "Successfully created account."
       redirect_to @account
     else
-      render :action => 'new'
+      redirect_to new_account_url
     end
   end
   
