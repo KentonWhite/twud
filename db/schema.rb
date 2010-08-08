@@ -10,14 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100805003642) do
+ActiveRecord::Schema.define(:version => 20100807234933) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
-    t.string   "token"
-    t.string   "key"
+    t.string   "access_token"
+    t.string   "access_secret"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "request_token"
+    t.string   "request_secret"
+    t.boolean  "authorized"
   end
 
   create_table "incoming_mails", :force => true do |t|

@@ -3,9 +3,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Account do 
   
   def new_account(attributes = {}) 
-    attributes[:name] ||= 'twudnet'
-    attributes[:token] ||= 'token'
-    attributes[:key] ||= 'key'
+    attributes[:request_token] ||= 'token'
+    attributes[:request_secret] ||= 'key'
     Account.new(attributes)
   end
   
@@ -22,6 +21,7 @@ describe Account do
     VCR.use_cassette('post', :record => :new_episodes) do
       @url = Account.new().authorize_url('www.example.com/accounts/create')
     end  
-    @url.should == "api.twitter.com/oauth/authenticate?force_login=true&oauth_token=#{token}"
+    @url.should == "https://api.twitter.com/oauth/authenticate?force_login=true&oauth_token=#{token}"
   end
+  
 end

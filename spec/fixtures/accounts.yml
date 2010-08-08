@@ -1,9 +1,9 @@
 one:
   name: MyString
-  token: MyString
-  key: MyString
+  request_token: MyString
+  request_secret: MyString
 
 two:
   name: MyString
-  token: MyString
-  key: MyString
+  request_token: MyString
+  request_secret: MyString
