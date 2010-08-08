@@ -1,12 +1,12 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-
-describe Account do 
-  
   def new_account(attributes = {}) 
     attributes[:request_token] ||= 'token'
     attributes[:request_secret] ||= 'key'
     Account.new(attributes)
   end
+
+describe Account do 
+  
   
   it "should be valid" do
     new_account.should be_valid
@@ -48,5 +48,84 @@ describe Account, 'authorize' do
     proc {
       authorize
     }.should change(Account, :count).by(1)
-  end  
+  end
+end 
+  
+describe Account, 'clear_stale_request_tokens' do 
+  
+  before(:each) do
+    Account.delete_all
+  end
+  it 'should remove the stale, unauthorized request token' do
+    account = new_account
+    account.save
+    Account.any_instance.stubs(:created_at).returns(1.hour.ago) 
+    proc {
+      Account.remove_stale_requests
+    }.should change(Account, :count).by(-1)
+  end
+  
+  it 'should keep the authorized token' do
+    account = new_account()  
+    account.authorized = true
+    account.save
+    Account.any_instance.stubs(:created_at).returns(1.hour.ago) 
+    proc {
+      Account.remove_stale_requests
+    }.should_not change(Account, :count)
+  end                                          
+  
+  it 'should keep the pending request token' do
+    account = new_account
+    account.save
+    Account.any_instance.stubs(:created_at).returns(1.minute.ago) 
+    proc {
+      Account.remove_stale_requests
+    }.should_not change(Account, :count)
+  end
+end
+
+describe Account, 'exchange_token' do 
+  fixtures :accounts 
+  
+  def exchange_token
+    request_token = '3rNTkmqrgSxyOzGpvSuqMkkTemRdIn3E2sbuE7TjI4'
+    @account = Account.find_by_request_token(request_token)
+    VCR.use_cassette('oauth_exchange_token', :record => :new_episodes) do
+      @account.exchange_token('R5lGrk41CuQB9JKx9jfGTg0l2iADIQNRdEKZeaMRyG0')
+    end   
+  end
+  
+  before(:each) do
+    exchange_token
+  end 
+  
+  it 'should return account with request_token' do
+    request_token = '3rNTkmqrgSxyOzGpvSuqMkkTemRdIn3E2sbuE7TjI4'
+    @account.request_token.should == request_token
+  end
+  
+  it 'should save account' do
+    Account.any_instance.expects(:save)
+    exchange_token
+  end
+  
+  it 'should set access_token' do
+    access_token = '172935359-IeYANm4s7GQ6mTl9hXYZya3q45gKVxjbIXF9Wkko'
+    @account.access_token.should == access_token
+  end                                 
+                    
+  it 'should set access_secret' do
+    access_secret = 'R5PCZlL4rbLVZBUiIdIQ5LX6hvK55KAw1t2jchA78aQ'
+    @account.access_secret.should == access_secret    
+  end                                  
+  
+  pending 'should set name' do
+    name = 'twudnet'
+    @account.name.should == name    
+  end                         
+  
+  it 'should set as authorized' do
+    @account.authorized.should be_true    
+  end
 end

@@ -1,0 +1,60 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: http://api.twitter.com:80/oauth/access_token
+    body: 
+    headers: 
+      accept: 
+      - "*/*"
+      user-agent: 
+      - OAuth gem v0.4.1
+      content-length: 
+      - 0
+      authorization: 
+      - OAuth oauth_body_hash="2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D", oauth_consumer_key="CfBeiEpCCZc0Z8hVIZmA", oauth_nonce="MviLuAXmVX1NJYevh8JnjcF8TiaVkigIAPTd4zxP8", oauth_signature="h91sKJOqbQPng36QMzXnjswMmYU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1281293434", oauth_token="3rNTkmqrgSxyOzGpvSuqMkkTemRdIn3E2sbuE7TjI4", oauth_verifier="R5lGrk41CuQB9JKx9jfGTg0l2iADIQNRdEKZeaMRyG0", oauth_version="1.0"
+      connection: 
+      - close
+      host: 
+      - api.twitter.com
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      date: 
+      - Sun, 08 Aug 2010 18:50:34 GMT
+      server: 
+      - hi
+      status: 
+      - 200 OK
+      x-transaction: 
+      - 1281293434-72322-51520
+      etag: 
+      - "\"810b58ad7723e66a2845835506a767ca\""
+      last-modified: 
+      - Sun, 08 Aug 2010 18:50:34 GMT
+      x-runtime: 
+      - "0.04585"
+      content-type: 
+      - text/html; charset=utf-8
+      content-length: 
+      - "163"
+      pragma: 
+      - no-cache
+      x-revision: 
+      - DEV
+      expires: 
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      cache-control: 
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      set-cookie: 
+      - k=99.240.142.228.1281293434355960; path=/; expires=Sun, 15-Aug-10 18:50:34 GMT; domain=.twitter.com
+      - guest_id=12812934343653010; path=/; expires=Tue, 07 Sep 2010 18:50:34 GMT
+      - _twitter_sess=BAh7CDoPY3JlYXRlZF9hdGwrCP49ClMqAToHaWQiJTZiMzZkODg0NTk5OTdi%250ANmE2YmMzNzg5YTI3ZjgwYWQ4IgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVy%250AOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--30110a0496a9e461db09181458bd3afd01057559; domain=.twitter.com; path=/
+      vary: 
+      - Accept-Encoding
+      connection: 
+      - close
+    body: oauth_token=172935359-IeYANm4s7GQ6mTl9hXYZya3q45gKVxjbIXF9Wkko&oauth_token_secret=R5PCZlL4rbLVZBUiIdIQ5LX6hvK55KAw1t2jchA78aQ&user_id=172935359&screen_name=twudnet
+    http_version: "1.1"

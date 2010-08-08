@@ -1,9 +1,9 @@
 one:
   name: MyString
-  request_token: MyString
-  request_secret: MyString
+  request_token: y34FUj5owAF7PYR4pAUjUa81FZxHCRbFSyx0Cjbu0E
+  request_secret: P6rBc8TbKUjdsu8Pv1rgAzteaLvQg1SRcj1PisA2Jc
 
 two:
   name: MyString
-  request_token: MyString
-  request_secret: MyString
+  request_token: 3rNTkmqrgSxyOzGpvSuqMkkTemRdIn3E2sbuE7TjI4
+  request_secret: Mn5YKzd7BsVfGBd69ZEOsHcl2pmkjgBblgxSgmKS5gs
