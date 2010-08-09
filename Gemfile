@@ -24,6 +24,7 @@ gem 'taps'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3' #  
 gem 'twitter'
+gem 'delayed_job', :git => 'git://github.com/collectiveidea/delayed_job.git'
 
 gem 'nifty-generators'
 
