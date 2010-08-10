@@ -27,6 +27,7 @@ gem 'twitter'
 gem 'delayed_job', :git => 'git://github.com/collectiveidea/delayed_job.git'
 
 gem 'nifty-generators'
+gem 'tweetstream'
 
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test #
